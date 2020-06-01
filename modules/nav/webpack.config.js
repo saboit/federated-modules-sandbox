@@ -1,48 +1,48 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
 module.exports = {
-  entry: "./src/index",
+  entry: './src/index',
   cache: false,
 
-  mode: "development",
-  devtool: "source-map",
+  mode: 'development',
+  devtool: 'source-map',
 
   optimization: {
     minimize: false,
   },
 
   output: {
-    publicPath: "http://localhost:3002/",
+    publicPath: 'http://localhost:3002/',
   },
 
   resolve: {
-    extensions: [".jsx", ".js", ".json"],
+    extensions: ['.jsx', '.js', '.json'],
   },
 
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
       },
     ],
   },
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "nav",
-      library: { type: "var", name: "nav" },
-      filename: "remoteEntry.js",
+      name: 'nav',
+      library: { type: 'var', name: 'nav' },
+      filename: 'remoteEntry.js',
       remotes: {},
       exposes: {
-        Nav: "./src/Nav",
+        Nav: './src/Nav',
       },
-      shared: ["react", "react-dom", "react-router-dom"],
+      shared: ['react', 'react-dom', 'react-router-dom'],
     }),
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
-      chunks: ["main"],
+      template: './public/index.html',
+      chunks: ['main'],
     }),
   ],
 };
