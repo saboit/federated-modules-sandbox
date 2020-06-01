@@ -1,0 +1,19 @@
+{
+  "name": "blog-post-example",
+  "private": true,
+  "scripts": {
+    "build": "yarn workspaces run build",
+    "serve": "wsrun --parallel serve",
+    "start": "concurrently \"wsrun --parallel start\" \"wsrun --parallel serve\""
+  },
+  "workspaces": [
+    "modules/*"
+  ],
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "wsrun": "^5.2.0",
+    "@babel/core": "^7.8.6",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-env": "7.9.6"
+  }
+}
