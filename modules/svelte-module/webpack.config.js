@@ -3,7 +3,7 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const path = require('path');
 
 module.exports = {
-  entry: './src/main',
+  entry: './src/index',
   cache: false,
 
   mode: 'development',
@@ -55,7 +55,7 @@ module.exports = {
       library: { type: 'var', name: 'svelte' },
       filename: 'remoteEntry.js',
       exposes: {
-        Svelte: './src/main',
+        Svelte: './src/bootstrap',
       },
     }),
     new HtmlWebpackPlugin({
