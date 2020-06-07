@@ -6,8 +6,11 @@
   </head>
   <body>
     <div id="root"></div>
-    <script>
-      console.log(window);
+    <div id="svelte"></div>
+    <script type="module">
+      window.nav.get('Nav').then((module) => console.log(module().default()));
+      window.svelte.get('Svelte').then((module) => console.log(module()));
+      //console.log(nav);
     </script>
   </body>
 </html>

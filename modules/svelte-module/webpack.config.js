@@ -27,12 +27,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.svelte$/,
+        test: /\.(html|svelte)$/,
+        exclude: /node_modules/,
         use: {
           loader: 'svelte-loader',
           options: {
-            emitCss: false,
-            hotReload: true,
+            hotReload: false,
           },
         },
       },
