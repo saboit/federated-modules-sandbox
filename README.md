@@ -1,3 +1,2 @@
-## Federated modules sandbox for personal playing around new features
+## Federated modules sandbox for playing around new webpack features
 
-[] try to combine different FE libraries and frameworks (solve loaders errors)
