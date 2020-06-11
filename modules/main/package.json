@@ -12,7 +12,9 @@
     "react-router-dom": "^5.2.0",
     "serve": "^11.3.0",
     "webpack": "5.0.0-beta.16",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "svelte": "3.6.3",
+    "svelte-loader": "2.13.3"
   },
   "peerDependencies": {
     "vue-template-compiler": "^2.6.11"

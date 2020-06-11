@@ -1,25 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
+import VueContainer from './VueContainer';
+import Nav from 'nav/Nav';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import styled from 'styled-components';
 
-import Nav from "nav/Nav";
-import App from "vue/App";
-import { Switch, Route, BrowserRouter } from "react-router-dom";
+const StyledMain = styled.main`
+  padding: 0.5rem;
+`;
 
 function Main() {
-  useEffect(() => {
-    console.log(App);
-    console.log(App[`$options`].render());
-  });
   return (
     <BrowserRouter>
       <Nav />
-      <Switch>
-        <Route exact path="/">
-          <div>Home</div>
-        </Route>
-        <Route path="/about">
-          <div>About</div>
-        </Route>
-      </Switch>
+      <StyledMain>
+        <Switch>
+          <Route exact path="/">
+            <div>Home</div>
+          </Route>
+          <Route path="/vue">
+            <VueContainer />
+          </Route>
+        </Switch>
+      </StyledMain>
     </BrowserRouter>
   );
 }

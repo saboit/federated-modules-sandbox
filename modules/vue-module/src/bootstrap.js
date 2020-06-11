@@ -1,17 +1,19 @@
-import Vue from "vue";
-const App = new Vue({
-  el: "vue",
-  name: "app",
-  data: {
-    template: null,
+import Vue from 'vue';
+import App from './App.vue';
+Vue.config.productionTip = false;
+Vue.component('Test', {
+  render(createElem) {
+    return createElem('p', 'The rendered paragraph text stays here');
   },
-  render(h) {
-    console.log("render reached");
-    return h("div", [this.template ? this.template() : ""]);
+});
+const app = new Vue({
+  name: 'app',
+  data() {
+    return { msg: 'Vue module' };
   },
-  mounted() {
-    this.template = Vue.compile("<div>working</div>").render;
+  render: function(h) {
+    return h(App);
   },
 });
 
-export default App;
+export default app;

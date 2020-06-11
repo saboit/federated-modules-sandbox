@@ -1,23 +1,26 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
 module.exports = {
-  entry: "./src/index",
+  entry: './src/index',
   cache: false,
 
-  mode: "development",
-  devtool: "source-map",
+  mode: 'development',
+  devtool: 'source-map',
 
   optimization: {
     minimize: false,
   },
 
   output: {
-    publicPath: "http://localhost:3001/",
+    publicPath: 'http://localhost:3001/',
   },
 
   resolve: {
-    extensions: [".jsx", ".js", ".json"],
+    extensions: ['.jsx', '.js', '.json'],
+    alias: {
+      vm: 'vm-browserify',
+    },
   },
 
   module: {
@@ -25,28 +28,28 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
       },
       {
         test: /\.md$/,
-        loader: "raw-loader",
+        loader: 'raw-loader',
       },
     ],
   },
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "main",
-      library: { type: "var", name: "main" },
-      filename: "remoteEntry.js",
+      name: 'main',
+      library: { type: 'var', name: 'main' },
+      filename: 'remoteEntry.js',
       remotes: {
-        nav: "nav",
-        vue: "vue",
+        nav: 'nav',
+        vue: 'vue',
       },
-      shared: ["react", "react-dom", "react-router-dom"],
+      shared: ['react', 'react-dom', 'react-router-dom'],
     }),
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
+      template: './public/index.html',
     }),
   ],
 };

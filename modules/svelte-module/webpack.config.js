@@ -57,6 +57,7 @@ module.exports = {
       exposes: {
         Svelte: './src/bootstrap',
       },
+      shared: ['svelte', 'svelte-loader'],
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
