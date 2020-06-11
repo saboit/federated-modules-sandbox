@@ -7,8 +7,7 @@ function VueContainer() {
   useEffect(() => {
     if (ref.current) {
       console.log(app);
-      ref.current.innerText = app.msg;
-      console.log(app['$mount'](ref.current));
+      app['$mount'](ref.current);
     }
   });
   return <div id="vue" ref={ref}></div>;
