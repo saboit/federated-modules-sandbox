@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = {
   entry: "./src/index",
@@ -13,45 +14,45 @@ module.exports = {
   },
 
   output: {
-    publicPath: "http://localhost:3002/",
+    publicPath: "http://localhost:3004/",
   },
 
   resolve: {
-    extensions: [".jsx", ".js", ".json"],
+    extensions: [".vue", ".js", ".json"],
+    alias: {
+      vue$: "vue/dist/vue.esm.js", // 'vue/dist/vue.common.js' for webpack 1
+    },
   },
 
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
+        test: /\.vue$/,
+        loader: "vue-loader",
+      },
+      {
+        test: /\.js$/,
         loader: "babel-loader",
       },
     ],
   },
 
   plugins: [
+    new VueLoaderPlugin(),
     new ModuleFederationPlugin({
-      name: "nav",
-      library: { type: "var", name: "nav" },
+      name: "vue",
+      library: { type: "var", name: "vue" },
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        Nav: "./src/Nav",
+        App: "./src/bootstrap",
       },
       shared: [
-        "react",
-        "react-dom",
-        "react-router-dom",
         "babel-loader",
         "@babel/core",
-        "@babel/preset-react",
         "vue-template-compiler",
+        "vue-loader",
       ],
-    }),
-    new HtmlWebpackPlugin({
-      template: "./public/index.html",
-      chunks: ["main"],
     }),
   ],
 };

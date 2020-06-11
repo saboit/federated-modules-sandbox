@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from "react";
 
-import Nav from 'nav/Nav';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import Nav from "nav/Nav";
+import App from "vue/App";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 
 function Main() {
+  useEffect(() => {
+    console.log(App);
+    console.log(App[`$options`].render());
+  });
   return (
     <BrowserRouter>
       <Nav />

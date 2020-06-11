@@ -7,10 +7,7 @@
   <body>
     <div id="root"></div>
     <div id="svelte"></div>
-    <script type="module">
-      window.nav.get('Nav').then((module) => console.log(module().default()));
-      window.svelte.get('Svelte').then((module) => console.log(module()));
-      //console.log(nav);
-    </script>
+    <div id="vue"></div>
+    <script src="http://localhost:3004/remoteEntry.js"></script>
   </body>
 </html>

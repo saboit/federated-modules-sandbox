@@ -11,7 +11,8 @@
     "svelte": "3.6.3",
     "svelte-loader": "2.13.3",
     "webpack": "5.0.0-beta.16",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "vue-template-compiler": "^2.6.11"
   },
   "peerDependencies": {
     "svelte": ">1.44.0"

@@ -1,25 +1,24 @@
 {
-  "name": "main",
+  "name": "vue-module",
   "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.8.6",
     "@babel/preset-react": "^7.8.3",
     "babel-loader": "^8.0.6",
     "html-webpack-plugin": "4.3.0",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "react-router-dom": "^5.2.0",
     "serve": "^11.3.0",
+    "vue": "^2.6.11",
+    "vue-loader": "^15.9.2",
     "webpack": "5.0.0-beta.16",
-    "webpack-cli": "^3.3.11"
-  },
-  "peerDependencies": {
+    "webpack-cli": "^3.3.11",
     "vue-template-compiler": "^2.6.11"
   },
   "scripts": {
     "start": "webpack --watch",
     "build": "webpack --mode production",
-    "serve": "serve dist -p 3001"
+    "serve": "serve dist -p 3004"
   }
 }
