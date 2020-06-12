@@ -1,26 +1,26 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = {
-  entry: './src/index',
+  entry: "./src/index",
   cache: false,
 
-  mode: 'development',
-  devtool: 'source-map',
+  mode: "development",
+  devtool: "source-map",
 
   optimization: {
     minimize: false,
   },
 
   output: {
-    publicPath: 'http://localhost:3004/',
+    publicPath: "http://localhost:3004/",
   },
 
   resolve: {
-    extensions: ['.vue', '.js', '.json'],
+    extensions: [".vue", ".js", ".json"],
     alias: {
-      vue$: 'vue/dist/vue.esm.js', // 'vue/dist/vue.common.js' for webpack 1
+      vue$: "vue/dist/vue.esm.js", // 'vue/dist/vue.common.js' for webpack 1
     },
   },
 
@@ -28,11 +28,11 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
+        loader: "vue-loader",
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        loader: "babel-loader",
       },
     ],
   },
@@ -40,18 +40,18 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new ModuleFederationPlugin({
-      name: 'vue',
-      library: { type: 'var', name: 'vue' },
-      filename: 'remoteEntry.js',
+      name: "vue",
+      library: { type: "var", name: "vue" },
+      filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        App: './src/bootstrap',
+        App: "./src/bootstrap",
       },
       shared: [
-        'babel-loader',
-        '@babel/core',
-        'vue-template-compiler',
-        'vue-loader',
+        "babel-loader",
+        "@babel/core",
+        "vue-template-compiler",
+        "vue-loader",
       ],
     }),
   ],

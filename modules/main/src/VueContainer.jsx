@@ -1,16 +1,24 @@
-import React, { useRef, useEffect } from 'react';
-import app from 'vue/App';
-import Vue from 'vue';
+import React, { useRef, useEffect, useLayoutEffect } from "react";
+import app from "vue/App";
+const container = document.createElement("div");
 
 function VueContainer() {
   const ref = useRef();
   useEffect(() => {
-    if (ref.current) {
+    const currentRef = ref.current;
+    if (currentRef) {
+      currentRef.appendChild(container);
+      app.$mount(container);
       console.log(app);
-      app['$mount'](ref.current);
+      console.log(app._vnode);
+      app.$node = app._vnode.elm.innerText;
     }
-  });
-  return <div id="vue" ref={ref}></div>;
+    return () => {
+      container.remove();
+      //app.$destroy();
+    };
+  }, [ref]);
+  return <div ref={ref}></div>;
 }
 
 export default VueContainer;

@@ -1,5 +1,7 @@
 <template>
-  <div id="vue" style="width: 200px; height: 200px; background-color: black">
-    {{ msg }}
+  <div id="vue" style="background-color: bisque; padding: 24px;">
+    <h1 style="margin:0">Vue module</h1>
+    <Hello />
+    <UserInput />
   </div>
 </template>

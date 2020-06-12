@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import VueContainer from './VueContainer';
-import Nav from 'nav/Nav';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import VueContainer from "./VueContainer";
+import Nav from "nav/Nav";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
+import styled from "styled-components";
 
 const StyledMain = styled.main`
   padding: 0.5rem;
