@@ -5,6 +5,7 @@ import { Switch, Route, BrowserRouter } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledMain = styled.main`
+  margin-top: 48px;
   padding: 0.5rem;
 `;
 

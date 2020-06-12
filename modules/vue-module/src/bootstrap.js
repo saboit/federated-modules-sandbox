@@ -42,11 +42,8 @@ Vue.component("UserInput", {
             fetch(`https://www.reddit.com/r/${self.subreddit}.json`)
               .then((response) => response.json())
               .then((json) => {
-                console.log(json.data.children.map((child) => child.data));
                 self.posts = json.data.children.map((child) => child.data);
               });
-            alert(`Input result: ${self.subreddit}`);
-            console.log(self.posts);
           },
         },
       }),
