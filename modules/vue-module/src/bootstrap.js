@@ -79,11 +79,12 @@ Vue.component("UserInput", {
   },
 });
 
-const app = new Vue({
-  render: function(h) {
-    const renderTemplate = this._c || h;
-    return renderTemplate(App);
-  },
-});
+const app = () =>
+  new Vue({
+    render: function(h) {
+      const renderTemplate = this._c || h;
+      return renderTemplate(App);
+    },
+  });
 
 export default app;

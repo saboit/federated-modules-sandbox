@@ -6,16 +6,15 @@ function VueContainer() {
   const ref = useRef();
   useEffect(() => {
     const currentRef = ref.current;
+    const vueInstance = app();
     if (currentRef) {
       currentRef.appendChild(container);
-      app.$mount(container);
-      console.log(app);
-      console.log(app._vnode);
-      app.$node = app._vnode.elm.innerText;
+      vueInstance.$mount(container);
+      console.log(vueInstance);
     }
     return () => {
+      vueInstance.$destroy();
       container.remove();
-      //app.$destroy();
     };
   }, [ref]);
   return <div ref={ref}></div>;
