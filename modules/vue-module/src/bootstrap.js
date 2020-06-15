@@ -11,7 +11,7 @@ Vue.component("Hello", {
 Vue.component("UserInput", {
   data() {
     return {
-      subreddit: "vue",
+      subreddit: "vuejs",
       posts: [],
     };
   },
@@ -63,9 +63,8 @@ Vue.component("UserInput", {
                 {
                   style: {
                     listStyle: "none",
-                    backgroundColor: "blanchedalmond",
                     padding: "8px",
-                    marginBottom: "4px",
+                    marginBottom: "6px",
                     boxShadow:
                       "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)",
                   },
