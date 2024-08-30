@@ -13,7 +13,7 @@
     "serve": "^11.3.0",
     "webpack": "5.0.0-beta.16",
     "webpack-cli": "^3.3.11",
-    "svelte": "3.6.3",
+    "svelte": "4.2.19",
     "svelte-loader": "2.13.3"
   },
   "peerDependencies": {
